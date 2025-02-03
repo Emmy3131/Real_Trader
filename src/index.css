@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.inpute{
+  @apply border-b border-slate-500 py-1 w-full focus:outline-none focus:ring-0;
+}
