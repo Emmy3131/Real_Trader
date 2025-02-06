@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <>
-        <div className='bg-primary pt-2 px-3'>
+        <div className='bg-primary pt-2 px-3 fixed w-full z-10'>
             <nav className="flex md:flex-row justify-between items-center">
               <aside className="text-3xl font-semibold">
                 <Link to="/">

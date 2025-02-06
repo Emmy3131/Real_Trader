@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
-
 import displayImage from '../assets/brandsImages/Image2.png'
 
 const Index = () => {
   return(
-    <div className="bg-primary">
+    <div className="bg-primary h-auto relative top-20">
       <section className='px-3 pb-3'>
         <div className="flex md:justify-start items-center flex-col-reverse md:flex-row">
           <aside className="">

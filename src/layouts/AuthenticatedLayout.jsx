@@ -15,7 +15,7 @@ const AuthenticatedLayout = () => {
         </div>
 
         <div>
-          <div className='bg-yellow-500 relative top-16 ml-56 '>
+          <div className='bg-slate-100 relative top-16 ml-56 '>
            <Outlet />
           </div>
         </div>

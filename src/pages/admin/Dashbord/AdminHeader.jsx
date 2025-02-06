@@ -29,9 +29,9 @@ const AdminHeader =() => {
                 </aside>
 
                 <aside className='flex gap-12 items-center'>
-                    <p className='bg-black py-1 px-2 rounded-lg'>
+                    <button className='btn'>
                       Deposit Funds
-                    </p>
+                    </button>
 
                     <aside>
                     <IoIosNotifications className='text-2xl text-gray-300' />
