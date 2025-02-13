@@ -3,7 +3,7 @@ import displayImage from '../assets/brandsImages/Image2.png'
 
 const Index = () => {
   return(
-    <div className="bg-primary h-auto relative top-20">
+    <div className="bg-primary h-auto">
       <section className='px-3 pb-3'>
         <div className="flex md:justify-start items-center flex-col-reverse md:flex-row">
           <aside className="">
@@ -31,12 +31,6 @@ const Index = () => {
            </div>
          </aside>
        </div>
-
-       <Link to="/AdminUI">
-          <button className='rounded-full bg-slate-500'>
-            next
-          </button>
-       </Link>
       </section>
     </div>
   )

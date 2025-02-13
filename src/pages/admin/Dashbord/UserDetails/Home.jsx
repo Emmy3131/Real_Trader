@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 const Home = () =>{
   return(
     <div>
-      <section className="flex px-5">
-          <aside className="flex-grow pr-5">
-            <span className="flex justify-between mt-4">
+      <section className="flex lg:flex-row flex-col px-5">
+          <aside className="grow pr-5">
+            <span className="flex lg:flex-row flex-col justify-between mt-4">
               <Link to="#">
                   <h1>
                     My Account
@@ -18,7 +18,7 @@ const Home = () =>{
              </Link>
             </span>
 
-            <span className="flex gap-56 mt-4">
+            <span className="flex lg:gap-50 mt-4 gap-10">
                 <Link to="#">
                     <p>
                       Real
@@ -32,17 +32,17 @@ const Home = () =>{
                 </Link>
             </span>
               <hr className="w-full border-slate-400" />
-            <div className="mt-4">
+            <div className="lg:mt-4 mt3">
               <span>
                 <h2 className="font-semibold text-[17px]">
                 Account Name
                 </h2>
-                <p className="mt-4 text-[22px] font-bold">
+                <p className="lg:mt-4 mt-2 text-[22px] font-bold">
                 $206,700.00
               </p>
               </span>
 
-              <span className="flex w-full gap-40 mt-4">
+              <span className="flex w-full lg:gap-40 gap-10 lg:mt-4 mt-2">
                 <button className="btn">
                   Withdraw
                 </button>
@@ -51,7 +51,7 @@ const Home = () =>{
                 </button>
               </span>
 
-              <span className="w-full">
+              <span className="w-full hidden lg:block">
                 <h1 className="mt-6 text-[20px font-medium]">
                   Top Traded Instruments
                 </h1>
@@ -97,7 +97,7 @@ const Home = () =>{
             <div className="w-full mt-4">
               <h2>Quick Trade</h2>
               <div>
-                  <div className="w-full h-32 bg-slate-600">
+                  <div className="lg:w-full w-[350px] h-32 bg-slate-600">
                     okay what are you doing here
                   </div>
                <span className="flex gap-20 mt-3">
@@ -113,12 +113,12 @@ const Home = () =>{
                         </p>
                     </Link>
                 </span>
-                <hr className="w-full border-slate-400" />
+                <hr className="lg:w-full w-64 border-slate-400" />
 
                 <h2 className="mt-4">
                   Symbols
                 </h2>
-                <div className="w-full flex gap-20">
+                <div className="w-full flex lg:gap-20 gap-10">
                     <span className="bg-gray-500 w-32 text-white p-1 rounded-md">
                         EURUSD
                     </span>
@@ -130,7 +130,7 @@ const Home = () =>{
                   <p>Auto Close</p>
                 </div>
 
-                <div className="flex gap-20 mt-2">
+                <div className="flex lg:gap-20 mt-2 gap-10">
                     <button className="text-left bg-blue-800 w-32 text-white p-1 rounded-md">
                         Buy
                         <p className="text-xs">0.012345</p>
@@ -142,7 +142,7 @@ const Home = () =>{
                 </div>
               </div>
 
-              <div className="w-full mt-2">
+              <div className="w-full mt-2 hidden lg:block">
                 <h2>Recent Transactions</h2>
                   <table className="border-2 text-left w-full">
                     <tr className="border-2">

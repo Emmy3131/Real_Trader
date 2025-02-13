@@ -1,6 +1,32 @@
 import {Link} from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
+
+
+const handleSubmit = e=>{
+  e.preventDefault()
+  let formData = new FormData(e.currentTarget);
+
+
+  fetch('http://localhost/Real_Trader_BackEnd/MainSrc/Users/AddUsers.php', {
+     method: 'POST',
+     body: formData
+  })
+     .then((res) => res.json())
+     .then((responseData) => {
+        if (responseData.success == true) {
+           alert(responseData.message);
+           window.location.href = '/Login'
+        } else {
+           document.getElementById('errorSpan').innerText = responseData.message;
+        }
+     })
+     .catch((error) => {
+        console.log(error);
+     })
+
+}
+
 const SignUp = () => {
   return (
     <>
@@ -10,7 +36,7 @@ const SignUp = () => {
                 <Link to="/">
                     <FaTimes />
                 </Link>
-                <form method="post" name="sign_form">
+                <form onSubmit={handleSubmit}>
                   <div className="text-center mb-7">
                       <h1 className="text-4xl mb-2">Sign up</h1>
                       <p className="text-xs font-semibold">Sign up to continue</p>
@@ -33,11 +59,9 @@ const SignUp = () => {
                   {/* <!-- Error Span to show error message --> */}
                   <span className="text-red-500 text-sm italic mb-2 block" id="errorSpan"></span>
 
-                  <div className="bg-primary text-center text-white py-2 rounded-md">
-                      <button className="max-w-full font-bold">
-                        Sign Up
-                      </button>
-                  </div>
+                  <button className="bg-primary text-center text-white py-2 rounded-md font-bold w-full">
+                        Sign Up 
+                  </button>
                 </form>
             </div>
 

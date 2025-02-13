@@ -6,14 +6,24 @@ import { AiTwotoneProfile } from "react-icons/ai";
 import { MdOutlineCastForEducation } from "react-icons/md";
 import { IoIosSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { clearAuth } from "../../auth/js/AuthService";
+import { FaBars, } from "react-icons/fa6";
 
 
-const SideBar = () => {
+const SideBar = ({ onClose = () => {}}) => {
+    const Logout =() => {
+        clearAuth();
+    }
   return (
     <>
       <div className="flex flex-col">
-            <aside className="flex-col flex-grow py-2 px-4 text-white overflow-auto rounded-l-2xl">
-               
+            <div className="w-full">
+                  <button onClick={() => onClose()}  className="py-1 px-2 bg-primary text-white lg:hidden w-full cursor-pointer">
+                        <FaBars className="text-left ml-[190px]" />
+                  </button>
+            </div>
+           
+            <aside className="flex-col grow py-2 px-4 text-white overflow-auto rounded-l-2xl">
                 <ul>
                     <li>
                         <Link to="/Dashbord" id="mnu_dashboard" className="py-2 px-3 flex items-center gap-2">
@@ -99,8 +109,8 @@ const SideBar = () => {
                     <div className=" h-10 w-10 rounded-full bg-slate-200 ml-5"></div>
                     <span id="username"></span>
                 </section>
-                <button className="bg-white rounded-md text-left w-full">
-                    <span><i className="fa-solid fa-right-from-bracket"></i></span><span className="ml-5"><a href="">Logout</a></span>
+                <button onClick={Logout} className="bg-white rounded-md text-left w-full">
+                    <span><i className="fa-solid fa-right-from-bracket"></i></span><span className="ml-5"><Link to="">Logout</Link></span>
                 </button>
             </div>
         </aside>

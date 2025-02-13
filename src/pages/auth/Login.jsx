@@ -1,7 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
+import { storeAuthUser } from "./js/AuthService"
+
+
+
 
 const Login = () => {
+  const navigate = useNavigate()
+
+  const handleSubmit = e=>{
+    e.preventDefault()
+    let formData = new FormData(e.currentTarget);
+  
+    fetch('http://localhost/Real_Trader_BackEnd/MainSrc/Users/Authenticate.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then((res) => res.json())
+      .then((responseData) => {
+        if (responseData.success == true) {        
+          storeAuthUser(responseData.user, responseData.auth_token)
+          navigate('/AdminUI')
+        } else {
+          document.getElementById('errorSpan').innerText = responseData.message;
+          alert(responseData.message)
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
   return (
     <>
       <section className="max-w-full min-h-dvh flex items-center">
@@ -10,7 +38,7 @@ const Login = () => {
                 <Link to="/">
                     <FaTimes />
                 </Link>
-                <form method="post" name="form_login">
+                <form method="post" name="form_login" onSubmit={handleSubmit}>
                   <div className="text-center mb-7">
                     <h1 className="text-4xl mb-2">Sign in</h1>
                     <p className="text-xs font-semibold">Sign in to continue</p>
@@ -22,7 +50,7 @@ const Login = () => {
                     <div className="flex items-start justify-between">
                       <aside>
                         <input type="checkbox" name="terms" id="terms"/>
-                        <label for="terms" className="text-sm">
+                        <label htmlFor="terms" className="text-sm">
                           Remember me
                         </label>
                       </aside>
@@ -35,11 +63,9 @@ const Login = () => {
                   {/* <!-- Error Span to show error message --> */}
                   <span className="text-red-500 text-sm italic mb-2 block" id="errorSpan"></span>
 
-                  <div className="bg-primary text-center text-white py-2 rounded-md">
-                    <button className="max-w-full font-bold">
+                  <button className="bg-primary text-center text-white py-2 rounded-md font-bold w-full">
                       Sign in
-                    </button>
-                  </div>
+                  </button>
                 </form>
               </div>
 

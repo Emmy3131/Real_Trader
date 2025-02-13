@@ -1,27 +1,36 @@
 import { Link } from 'react-router-dom'
-import { FaBars } from "react-icons/fa6";
+import { FaBars, } from "react-icons/fa6";
+import { TiTimes } from "react-icons/ti";
 import logo from "../assets/brandsImages/brand1.png"
-const Header = () => {
-    // let menuBar = document.getElementById ('menuIcon');
+import { useState } from 'react';
 
-    // menuBar.addEventListener ('click', () => {
-    //   let listItem = document.getElementById('menuListItem');
 
-      
-    // })
-
+const Header = ({ onClose =() => {}}) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-        <div className='bg-primary pt-2 px-3 fixed w-full z-10'>
+        <div className='bg-primary pt-2 px-3 w-ful0l z-1'>
             <nav className="flex md:flex-row justify-between items-center">
               <aside className="text-3xl font-semibold">
                 <Link to="/">
                     <img  className="max-w-20" src={logo} alt=""/>
                 </Link>
               </aside>
-          
+
+             
+
               <aside className="">
-                <ul className="lg:flex flex-col md:flex-row md:gap-10 font-medium text-lg text-blue-200 bg-stone-700 md:bg-transparent p-4 rounded-lg md:p-0 hidden md:block" id="menuListItem">
+              
+
+                <ul className="lg:flex flex-col md:flex-row md:gap-10 font-medium text-lg text-blue-400 bg-gray-300 md:bg-gray-300 lg:bg-transparent p-4 lg:h-auto h-[300px] md:p-0 md:w-[300px] md:h-dvh w-full  top-0 right-0 fixed lg:relative lg:w-full text-center md:text-start lg:pt-0 md:pt-10 md:pl-[50px] hidden " onClose={() => setIsOpen((prev) => !prev)}>
+
+                <div className='ml-[200px] mb-[20px] text-[22px] text-black lg:hidden'>
+                  <button onClick={() => onClose()}>
+                    <TiTimes />
+                  </button>
+               </div>
+                  
+
                   <li className="hover:text-white">
                     <a href="#">Trading</a>
                   </li>
@@ -48,11 +57,6 @@ const Header = () => {
                   
                 </ul>
               </aside>
-
-              <aside className="lg:hidden text-3xl text-white" id='menuIcon'>
-              <FaBars />
-              </aside>
-          
           
               <aside className="hidden lg:flex">
                   <Link to="/Login" className="rounded-3xl ml-5 border-2 border-white font-semibold text-white">
@@ -63,6 +67,10 @@ const Header = () => {
                       <button  className="px-3 py-1">Sign Up</button>
                   </Link>
               </aside>
+
+              <button onClick={() => setIsOpen((prev) => !prev)} className='lg:hidden'>
+                <FaBars className='text-white text-[30px]' />
+              </button>
             </nav>
         </div>
     </>
