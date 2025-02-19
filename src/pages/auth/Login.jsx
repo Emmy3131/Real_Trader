@@ -49,7 +49,7 @@ const Login = () => {
                     <input className="inpute" type="password" placeholder="Password" name="password"/>
                     <div className="flex items-start justify-between">
                       <aside>
-                        <input type="checkbox" name="terms" id="terms"/>
+                        <input type="checkbox" required />
                         <label htmlFor="terms" className="text-sm">
                           Remember me
                         </label>

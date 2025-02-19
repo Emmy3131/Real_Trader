@@ -8,6 +8,7 @@ import { IoIosSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { clearAuth } from "../../auth/js/AuthService";
 import { FaBars, } from "react-icons/fa6";
+import { BiSolidLogOutCircle } from "react-icons/bi";
 
 
 const SideBar = ({ onClose = () => {}}) => {
@@ -89,7 +90,7 @@ const SideBar = ({ onClose = () => {}}) => {
                         </a>
                     </li>
                     <li>
-                        <a href="" id="mnu_dashboard" className="py-2 px-3 flex items-center gap-2">
+                        <a href="" className="py-2 px-3 flex items-center gap-2">
                             <IoIosSettings /> 
                             <span>
                                 Settings
@@ -104,12 +105,13 @@ const SideBar = ({ onClose = () => {}}) => {
 
 
         <aside className="px-4 py-3">
-            <div className="py-3 px-4 rounded-lg bg-secondary ">
-                <section className="mb-4 text-white text-center ">
-                    <div className=" h-10 w-10 rounded-full bg-slate-200 ml-5"></div>
-                    <span id="username"></span>
+            <div className="py-3 rounded-lg">
+                <section className=" text-white text-center ">
+                    <div className="rounded-full bg-slate-200 ml-5 text-center">
+                        < BiSolidLogOutCircle className="text-blue-800"/>
+                    </div>
                 </section>
-                <button onClick={Logout} className="bg-white rounded-md text-left w-full">
+                <button onClick={Logout} className=" rounded-md text-left w-full">
                     <span><i className="fa-solid fa-right-from-bracket"></i></span><span className="ml-5"><Link to="">Logout</Link></span>
                 </button>
             </div>

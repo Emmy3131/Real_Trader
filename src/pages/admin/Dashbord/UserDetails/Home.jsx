@@ -1,6 +1,21 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { CandleChart } from "../../../../components/candleChart";
+import { useState } from "react";
+import { FaAngleUp } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
 
 const Home = () =>{
+
+  const [number, setnumber] = (useState(0.01));
+  const increament = () =>{
+    setnumber( number + 0.01)
+  }
+  const decreament = () =>{
+    if(number > 0.01){
+      setnumber(number - 0.01)
+    }
+  }
+
   return(
     <div>
       <section className="flex lg:flex-row flex-col px-5">
@@ -97,33 +112,49 @@ const Home = () =>{
             <div className="w-full mt-4">
               <h2>Quick Trade</h2>
               <div>
-                  <div className="lg:w-full w-[350px] h-32 bg-slate-600">
-                    okay what are you doing here
-                  </div>
-               <span className="flex gap-20 mt-3">
-                    <Link to="#">
-                        <p>
-                          Instant
-                        </p>
-                    </Link>
 
-                    <Link to="#">
-                        <p>
-                          Pending
-                        </p>
-                    </Link>
-                </span>
-                <hr className="lg:w-full w-64 border-slate-400" />
+                  <aside className="lg:w-full w-[350px]  bg-slate-600">
+                    <CandleChart />
+                  </aside>
+
+                  <span className="flex gap-20 mt-3">
+                        <Link to="#">
+                            <p>
+                              Instant
+                            </p>
+                        </Link>
+
+                        <Link to="#">
+                            <p>
+                              Pending
+                            </p>
+                        </Link>
+                    </span>
+                  <hr className="lg:w-full w-64 border-slate-400" />
 
                 <h2 className="mt-4">
                   Symbols
                 </h2>
                 <div className="w-full flex lg:gap-20 gap-10">
-                    <span className="bg-gray-500 w-32 text-white p-1 rounded-md">
-                        EURUSD
-                    </span>
-                    <span className="bg-gray-500 w-32 text-white p-1 rounded-md">
-                        <p className="">0.01</p>
+                    <aside className="bg-gray-500 w-32 text-white p-1 rounded-md flex justify-between items-center">
+                        <span>EURUSD</span>
+                        <div>
+                          <button className="block">
+                            < FaAngleUp />
+                          </button>
+                          <button className="block">
+                            < FaAngleDown />
+                          </button>
+                        </div>
+                    </aside>
+                    <span className="flex justify-between items-center bg-gray-500 w-32 text-white p-1 rounded-md">
+                        <div>
+                          {number}
+                        </div>
+                        <div>
+                          <button className="block" onClick={() => decreament()}>-</button>
+                          <button className="block" onClick={() => increament()}>+</button>
+                        </div>
                     </span>
                 </div>
                 <div className="mt-2">

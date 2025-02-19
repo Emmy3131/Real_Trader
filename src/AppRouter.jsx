@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "/src/pages/Index";
-import About from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import AuthLayout from "./layouts/AuthLayout";
@@ -12,6 +11,7 @@ import AdminUI from "./pages/admin/AdminUI";
 import Home from "./pages/admin/Dashbord/UserDetails/Home";
 import AccountDetails from "./pages/admin/Dashbord/UserDetails/AccountDetails";
 import { useState } from "react";
+import AboutUs from "../src/pages/AboutUs";
 
 
 const AppRouter = () => {
@@ -20,7 +20,7 @@ const AppRouter = () => {
         <Routes>
             <Route element={<GuestLayout/>}>
               <Route path="/" element = {<Index />} />
-              <Route path="about" element = {<About />} />
+              <Route path="about" element = {<AboutUs />} />
               <Route path="contact" element = {<Contact />} />
               <Route path="Services" element = {<Services />} />
             </Route>

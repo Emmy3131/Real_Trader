@@ -48,7 +48,7 @@ const SignUp = () => {
                         <input className="inpute" type="email" placeholder="Email" name="email"/>
                         <input className="inpute" type="password" placeholder="Password" name="password"/>
                         <div>
-                          <input type="checkbox" name="terms" id="terms" required/>
+                          <input type="checkbox " required/>
                           <label for="terms" className="text-sm">
                               Agree to our <a href="#" target="_blank" className="text-secondary font-semibold">Policies</a> and
                               <a href="#" target="_blank" className="text-secondary font-semibold">Terms of services</a>
